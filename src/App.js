@@ -18,10 +18,12 @@ function App() {
     // Smooth scroll for all anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
-        e.preventDefault();
         const targetId = this.getAttribute('href');
+        if (targetId === '#') return; // Skip empty hash links
+        
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
+          e.preventDefault();
           window.scrollTo({
             top: targetElement.offsetTop - 70, // Adjust for sticky navbar
             behavior: 'smooth'

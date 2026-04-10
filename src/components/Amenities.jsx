@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Tab, Nav } from 'react-bootstrap';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  FaSwimmingPool, FaDumbbell, FaRunning, 
+import {
+  FaSwimmingPool, FaDumbbell, FaRunning,
   FaTree, FaShieldAlt, FaLaptopCode, FaSpa, FaTheaterMasks,
   FaCoffee, FaChargingStation, FaShoppingBag, FaLeaf,
   FaVrCardboard, FaBiking, FaDog, FaOm
@@ -66,7 +66,7 @@ const Amenities = () => {
       <div className="bg-decor-circle"></div>
       <Container>
         <div className="section-title">
-          <motion.span 
+          <motion.span
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             className="subtitle"
@@ -97,37 +97,34 @@ const Amenities = () => {
           </Nav>
 
           <Tab.Content>
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeTab}
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
-                exit="hidden"
-              >
-                <Row className="g-4">
-                  {amenityData[activeTab].map((item, index) => (
-                    <Col lg={4} md={6} key={index}>
-                      <motion.div
-                        variants={itemVariants}
-                        whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                        className="amenity-card-v2 glass-card"
-                      >
-                        <div className="amenity-icon-wrapper">
-                          <div className="icon-glow"></div>
-                          <div className="icon-main">{item.icon}</div>
-                        </div>
-                        <div className="amenity-info">
-                          <h3>{item.title}</h3>
-                          <div className="mini-divider"></div>
-                          <p>{item.desc}</p>
-                        </div>
-                      </motion.div>
-                    </Col>
-                  ))}
-                </Row>
-              </motion.div>
-            </AnimatePresence>
+            <motion.div
+              key={activeTab}
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <Row className="g-4">
+                {(amenityData[activeTab] || []).map((item, index) => (
+                  <Col lg={4} md={6} key={index}>
+                    <motion.div
+                      variants={itemVariants}
+                      whileHover={{ y: -10, transition: { duration: 0.3 } }}
+                      className="amenity-card-v2 glass-card"
+                    >
+                      <div className="amenity-icon-wrapper">
+                        <div className="icon-glow"></div>
+                        <div className="icon-main">{item.icon}</div>
+                      </div>
+                      <div className="amenity-info">
+                        <h3>{item.title}</h3>
+                        <div className="mini-divider"></div>
+                        <p>{item.desc}</p>
+                      </div>
+                    </motion.div>
+                  </Col>
+                ))}
+              </Row>
+            </motion.div>
           </Tab.Content>
         </Tab.Container>
       </Container>
