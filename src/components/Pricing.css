@@ -1,0 +1,156 @@
+.pricing-section {
+  background: var(--bg-dark);
+}
+
+/* Custom Tabs Styling */
+.custom-tabs.nav-tabs {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+  gap: 2rem;
+}
+
+.custom-tabs .nav-link {
+  background: transparent !important;
+  border: none !important;
+  color: #8892b0 !important;
+  font-family: var(--font-serif, serif);
+  font-size: 1.25rem;
+  padding: 1rem 0;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.custom-tabs .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-gold);
+  transition: all 0.3s ease;
+}
+
+.custom-tabs .nav-link.active {
+  color: var(--primary-gold) !important;
+}
+
+.custom-tabs .nav-link.active::after {
+  width: 100%;
+}
+
+/* Unit Cards */
+.price-card-lux {
+  border-top: 4px solid var(--primary-gold);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.price-card-lux:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.06);
+  border-top-color: #fff;
+}
+
+.cat-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #8892b0;
+}
+
+.cat-label.luxury {
+  background: rgba(197, 160, 89, 0.15);
+  color: var(--primary-gold);
+}
+
+.special-promo {
+  background: linear-gradient(145deg, rgba(197, 160, 89, 0.05) 0%, rgba(15, 15, 18, 0.8) 100%);
+  border: 1px dashed var(--primary-gold) !important;
+}
+
+/* Cost Cards */
+.cost-icon-box {
+  width: 50px;
+  height: 50px;
+  background: rgba(197, 160, 89, 0.1);
+  color: var(--primary-gold);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+/* Roadmap / Timeline */
+.clp-roadmap {
+  z-index: 1;
+}
+
+.roadmap-line {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, rgba(197, 160, 89, 0.3), transparent);
+  z-index: -1;
+}
+
+.step-marker {
+  width: 40px;
+  height: 40px;
+  background: var(--primary-gold);
+  color: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  box-shadow: 0 0 20px rgba(197, 160, 89, 0.4);
+}
+
+.value-box {
+  border-bottom: 2px solid var(--primary-gold) !important;
+}
+
+.smaller {
+  font-size: 0.75rem;
+}
+
+/* Buttons */
+.btn-luxury-sm {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border-radius: 0;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.btn-outline-gold {
+  color: var(--primary-gold);
+  border: 1px solid var(--primary-gold);
+}
+
+.btn-outline-gold:hover {
+  background: var(--primary-gold);
+  color: #000;
+  box-shadow: 0 5px 15px rgba(197, 160, 89, 0.3);
+}
+
+@media (max-width: 991px) {
+  .custom-tabs.nav-tabs {
+    gap: 1rem;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 5px;
+  }
+  .custom-tabs .nav-link {
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+}

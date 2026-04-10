@@ -1,0 +1,319 @@
+.floorplans-section {
+  background: var(--bg-dark, #0f0f12);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background accents */
+.floorplans-section::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(207, 168, 110, 0.03) 0%, transparent 60%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.floorplans-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.luxury-tabs-wrapper {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 50px;
+  padding: 0.5rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: inline-flex;
+}
+
+.luxury-tabs.nav-tabs {
+  border-bottom: none;
+  display: flex;
+  margin: 0;
+  gap: 0.5rem;
+}
+
+.luxury-tabs .nav-link {
+  background: transparent !important;
+  border: none !important;
+  color: #8892b0 !important;
+  font-family: var(--font-serif, serif);
+  font-size: 1.25rem;
+  padding: 0.75rem 2.5rem;
+  border-radius: 40px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 2;
+}
+
+.luxury-tabs .nav-link:hover {
+  color: #ffffff !important;
+}
+
+.luxury-tabs .nav-link.active {
+  color: #000000 !important;
+  background: var(--primary-gold, linear-gradient(135deg, #dfc28d 0%, #b88a44 100%)) !important;
+  font-weight: 600;
+  box-shadow: 0 5px 15px rgba(207, 168, 110, 0.25);
+}
+
+.plan-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+  min-height: 500px;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.plan-main-image-wrapper {
+  transition: all 0.5s ease;
+}
+
+.plan-main-image-wrapper img {
+  transform-origin: center;
+}
+
+/* Hover overlay and Enquire Button */
+.hover-enquire-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: 3;
+}
+
+.plan-main-image-wrapper:hover .hover-enquire-overlay {
+  opacity: 1;
+}
+
+.btn-enquire-hover {
+  background: var(--primary-gold, #cfa86e);
+  color: #000;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.plan-main-image-wrapper:hover .btn-enquire-hover {
+  transform: translateY(0);
+}
+
+.btn-enquire-hover:hover {
+  background: #fff !important;
+  color: #000 !important;
+  transform: scale(1.05) translateY(0);
+}
+
+.plan-thumbnails {
+  height: 90px;
+}
+
+.thumbnail-box {
+  flex: 1;
+  border-radius: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.thumbnail-box .thumbnail-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.thumbnail-box:hover .thumbnail-overlay {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.thumbnail-box.active {
+  border-color: var(--primary-gold, #cfa86e);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+.thumbnail-box.active .thumbnail-overlay {
+  background: rgba(0, 0, 0, 0);
+}
+
+.price-tag-floating {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 2.5rem;
+  background: rgba(15, 15, 18, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1.25rem 2rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(207, 168, 110, 0.2);
+  z-index: 2;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+  transform: translateY(0);
+  transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.plan-image-wrapper:hover .price-tag-floating {
+  transform: translateY(-10px);
+  border-color: rgba(207, 168, 110, 0.5);
+}
+
+.price-tag-floating .tag-label {
+  display: block;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: #adb5bd;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.35rem;
+}
+
+.price-tag-floating .tag-price {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--primary-gold, #cfa86e);
+  line-height: 1.1;
+}
+
+.plan-details-lux {
+  padding: 1rem 0 1rem 3rem;
+}
+
+@media (max-width: 991px) {
+  .plan-details-lux {
+    padding: 2rem 0;
+  }
+}
+
+.variant-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.variant-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--primary-gold, #cfa86e);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.variant-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(207, 168, 110, 0.3);
+  transform: translateX(8px);
+}
+
+.variant-card:hover::before {
+  opacity: 1;
+}
+
+.highlights-box {
+  background: linear-gradient(145deg, rgba(20,20,25,0.6) 0%, rgba(15,15,20,0.8) 100%);
+  border-left: 3px solid var(--primary-gold, #cfa86e);
+  border-radius: 0 0.75rem 0.75rem 0;
+  position: relative;
+}
+
+.highlight-list {
+  list-style: none;
+  padding: 0;
+}
+
+.highlight-list li {
+  line-height: 1.6;
+}
+
+.btn-luxury-solid {
+  background: linear-gradient(135deg, var(--primary-gold, #cfa86e) 0%, #b88a44 100%);
+  color: #000;
+  border: none;
+  border-radius: 0.5rem;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(207, 168, 110, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-luxury-solid::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.7s ease;
+}
+
+.btn-luxury-solid:hover {
+  background: linear-gradient(135deg, #dfc28d 0%, #cfa86e 100%);
+  color: #000;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(207, 168, 110, 0.3);
+}
+
+.btn-luxury-solid:hover::after {
+  left: 200%;
+}
+
+@media (max-width: 768px) {
+  .luxury-tabs .nav-link {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+  }
+  .luxury-tabs.nav-tabs {
+    gap: 0.25rem;
+  }
+  .plan-image-wrapper {
+    min-height: 400px;
+  }
+  .price-tag-floating {
+    bottom: 1.5rem;
+    left: 1.5rem;
+    padding: 1rem 1.5rem;
+  }
+}

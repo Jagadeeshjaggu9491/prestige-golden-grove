@@ -1,0 +1,176 @@
+.amenities-section {
+  background: var(--bg-dark);
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0;
+}
+
+.bg-decor-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.05) 0%, transparent 70%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Luxury Tabs Navigation Rewrite */
+.luxury-tabs-nav.nav {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+  gap: 3rem;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 5;
+}
+
+.luxury-tab-link {
+  background: transparent !important;
+  border: none !important;
+  color: var(--text-muted) !important;
+  font-family: var(--font-serif);
+  font-size: 1.2rem !important;
+  padding: 1rem 0 !important;
+  position: relative;
+  transition: all 0.3s ease;
+  border-radius: 0 !important;
+}
+
+.luxury-tab-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-gold);
+  transition: all 0.3s ease;
+}
+
+.luxury-tab-link.active {
+  color: var(--primary-gold) !important;
+  background: transparent !important;
+}
+
+.luxury-tab-link.active::after {
+  width: 100%;
+}
+
+/* Enhanced Amenity Card */
+.amenity-card-v2 {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.amenity-icon-wrapper {
+  position: relative;
+  margin-bottom: 2rem;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-main {
+  font-size: 2.5rem;
+  color: var(--primary-gold);
+  position: relative;
+  z-index: 2;
+}
+
+.icon-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: var(--primary-gold);
+  opacity: 0.15;
+  filter: blur(20px);
+  border-radius: 50%;
+  transition: all 0.5s ease;
+}
+
+.amenity-card-v2:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(197, 160, 89, 0.4);
+  transform: translateY(-10px);
+}
+
+.amenity-card-v2:hover .icon-glow {
+  opacity: 0.4;
+  width: 150%;
+  height: 150%;
+}
+
+.amenity-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+  font-family: var(--font-serif);
+  color: #fff;
+}
+
+.mini-divider {
+  width: 40px;
+  height: 2px;
+  background: var(--primary-gold);
+  margin-bottom: 1.2rem;
+  transition: width 0.4s ease;
+}
+
+.amenity-card-v2:hover .mini-divider {
+  width: 80px;
+  background: #fff;
+}
+
+.amenity-info p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin: 0;
+}
+
+@media (max-width: 991px) {
+  .luxury-tabs-nav.nav {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start !important;
+    gap: 2rem;
+    scrollbar-width: none;
+    padding-bottom: 0;
+  }
+  .luxury-tabs-nav.nav::-webkit-scrollbar {
+    display: none;
+  }
+  .luxury-tab-link {
+    font-size: 1rem !important;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .amenity-card-v2 {
+    padding: 2.5rem 2rem;
+    align-items: center;
+    text-align: center;
+  }
+  .mini-divider {
+    margin: 0.8rem auto 1.2rem;
+  }
+}

@@ -1,0 +1,26 @@
+.lead-form-container {
+  width: 100%;
+}
+
+.luxury-lead-form .luxury-input {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(197, 160, 89, 0.3) !important;
+  color: #fff !important;
+  border-radius: 0 !important;
+  padding: 0.8rem 1rem !important;
+  transition: all 0.3s ease !important;
+}
+
+.luxury-lead-form .luxury-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.luxury-lead-form .luxury-input:focus {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: var(--primary-gold) !important;
+  box-shadow: 0 0 10px rgba(197, 160, 89, 0.2) !important;
+}
+
+.luxury-lead-form .btn-luxury {
+  margin-top: 1rem;
+}
