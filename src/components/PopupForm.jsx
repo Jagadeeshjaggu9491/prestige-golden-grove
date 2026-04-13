@@ -62,12 +62,15 @@ const PopupForm = () => {
       >
         <Modal.Body className="p-0 overflow-hidden">
           <div className="popup-container">
+            <div className="mobile-popup-bg d-md-none" style={{ backgroundImage: `url(${Prestige})` }}>
+              <div className="mobile-overlay"></div>
+            </div>
             <button className="close-btn" onClick={closeModal}>&times;</button>
             <div className="popup-image d-none d-md-block">
               <img src={Prestige} alt="Prestige" />
               <div className="overlay"></div>
               <div className="text-overlay">
-                <h4 className="serif">Exclusive Offer</h4>
+                <h4 className="serif gold-text">Exclusive Offer</h4>
                 <p>Register for Pre-Launch Pricing</p>
               </div>
             </div>

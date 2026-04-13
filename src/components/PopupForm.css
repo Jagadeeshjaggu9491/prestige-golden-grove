@@ -8,29 +8,12 @@
 .popup-container {
   display: flex;
   position: relative;
-}
-
-.close-btn {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 2rem;
-  z-index: 10;
-  line-height: 1;
-  transition: color 0.3s ease;
-}
-
-.close-btn:hover {
-  color: var(--primary-gold);
+  min-height: 500px;
 }
 
 .popup-image {
   flex: 1;
   position: relative;
-  min-height: 500px;
 }
 
 .popup-image img {
@@ -57,6 +40,45 @@
 
 .popup-form {
   flex: 1.2;
+  position: relative;
+  z-index: 1;
+}
+
+.mobile-popup-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.mobile-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85); /* Proper black overlay as requested */
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  z-index: 10;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: var(--primary-gold);
 }
 
 /* Sticky CTA */
@@ -112,9 +134,10 @@
 @media (max-width: 768px) {
   .popup-container {
     flex-direction: column;
+    min-height: auto;
   }
-  .popup-image {
-    min-height: 200px;
+  .popup-form {
+    padding: 30px 20px !important;
   }
   .sticky-cta-btn {
     bottom: 20px;

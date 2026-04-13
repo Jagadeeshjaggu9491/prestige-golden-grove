@@ -1,6 +1,7 @@
-import React from 'react';
-import { Container } from 'react-bootstrap';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { Container, Modal } from 'react-bootstrap';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaChevronLeft, FaChevronRight, FaTimes } from 'react-icons/fa';
 import './Gallery.css';
 
 // Importing local images
@@ -14,6 +15,9 @@ import Gal7 from '../images/gal-7.jpeg';
 import Gal8 from '../images/gal-8.jpeg';
 
 const Gallery = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   const images = [
     { src: Gal1, alt: "Prestige Golden Grove Exterior" },
     { src: Gal2, alt: "Luxury Clubhouse" },
@@ -24,6 +28,21 @@ const Gallery = () => {
     { src: Gal7, alt: "Bedroom Suite" },
     { src: Gal8, alt: "Landscape Gardens" }
   ];
+
+  const openLightbox = (index) => {
+    setCurrentIndex(index);
+    setIsOpen(true);
+  };
+
+  const closeLightbox = () => setIsOpen(false);
+
+  const nextImage = () => {
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevImage = () => {
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -66,6 +85,7 @@ const Gallery = () => {
               key={index}
               variants={itemVariants}
               className="gallery-item-lux"
+              onClick={() => openLightbox(index)}
             >
               <div className="gallery-img-wrapper-lux">
                 <img src={img.src} alt={img.alt} loading="lazy" />
@@ -81,6 +101,50 @@ const Gallery = () => {
           ))}
         </motion.div>
       </Container>
+
+      {/* Lightbox Modal */}
+      <Modal
+        show={isOpen}
+        onHide={closeLightbox}
+        centered
+        size="xl"
+        className="gallery-lightbox"
+        contentClassName="bg-transparent border-0"
+      >
+        <Modal.Body className="p-0 position-relative">
+          <button className="lightbox-close" onClick={closeLightbox}>
+            <FaTimes />
+          </button>
+          
+          <div className="lightbox-content">
+            <button className="nav-btn prev" onClick={(e) => { e.stopPropagation(); prevImage(); }}>
+              <FaChevronLeft />
+            </button>
+            
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={currentIndex}
+                src={images[currentIndex].src}
+                alt={images[currentIndex].alt}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.3 }}
+                className="img-fluid main-lightbox-img"
+              />
+            </AnimatePresence>
+
+            <button className="nav-btn next" onClick={(e) => { e.stopPropagation(); nextImage(); }}>
+              <FaChevronRight />
+            </button>
+
+            <div className="lightbox-caption">
+              <h4>{images[currentIndex].alt}</h4>
+              <p>{currentIndex + 1} / {images.length}</p>
+            </div>
+          </div>
+        </Modal.Body>
+      </Modal>
     </section>
   );
 };
