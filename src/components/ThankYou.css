@@ -1,0 +1,50 @@
+.thank-you-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(197, 160, 89, 0.16), transparent 40%),
+    radial-gradient(circle at 80% 0%, rgba(197, 160, 89, 0.12), transparent 32%),
+    linear-gradient(180deg, #0b0d10 0%, #060607 100%);
+}
+
+.thank-you-card {
+  width: 100%;
+  max-width: 680px;
+  text-align: center;
+  padding: 3rem 2rem;
+  border-radius: 18px;
+}
+
+.thank-you-tag {
+  letter-spacing: 0.25rem;
+  font-size: 0.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.thank-you-card h1 {
+  color: #fff;
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  margin-bottom: 1.25rem;
+}
+
+.thank-you-text {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  max-width: 560px;
+  margin: 0 auto 2rem;
+}
+
+@media (max-width: 768px) {
+  .thank-you-card {
+    padding: 2rem 1.25rem;
+  }
+
+  .thank-you-text {
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+}

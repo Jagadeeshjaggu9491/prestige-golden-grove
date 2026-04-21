@@ -81,7 +81,7 @@ const Location = () => {
                 style={{ border: 0, borderRadius: '1.5rem', filter: 'grayscale(1) invert(0.9) contrast(1.2)' }}
                 allowFullScreen=""
                 loading="lazy"
-                title="Google Map"
+                title="Prestige Golden Grove project location map in Kollur Hyderabad"
               ></iframe>
               <div className="map-overlay-badge p-3">
                 <FaMapMarkerAlt className="me-2" />

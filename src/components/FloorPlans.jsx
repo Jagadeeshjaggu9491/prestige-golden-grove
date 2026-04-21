@@ -137,7 +137,7 @@ const FloorPlans = () => {
                       <motion.img
                         key={activeImg}
                         src={plans[key].images[activeImg]}
-                        alt={`${plans[key].title} View ${activeImg + 1}`}
+                        alt={`Prestige Golden Grove ${plans[key].title} floor plan layout ${activeImg + 1}`}
                         initial={{ opacity: 0, scale: 1.05 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0 }}
@@ -165,7 +165,7 @@ const FloorPlans = () => {
                         onClick={() => setActiveImg(idx)}
                         className={`thumbnail-box ${activeImg === idx ? 'active' : ''}`}
                       >
-                        <img src={img} alt={`Thumbnail ${idx + 1}`} className="w-100 h-100 object-fit-cover" />
+                        <img src={img} alt={`${plans[key].title} floor plan thumbnail ${idx + 1}`} className="w-100 h-100 object-fit-cover" />
                         <div className="thumbnail-overlay"></div>
                       </div>
                     ))}

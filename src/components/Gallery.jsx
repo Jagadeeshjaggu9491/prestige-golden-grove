@@ -19,14 +19,14 @@ const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const images = [
-    { src: Gal1, alt: "Prestige Golden Grove Exterior" },
-    { src: Gal2, alt: "Luxury Clubhouse" },
-    { src: Gal3, alt: "Premium Interior" },
-    { src: Gal4, alt: "Aerial View" },
-    { src: Gal5, alt: "Amenities" },
-    { src: Gal6, alt: "Living Space" },
-    { src: Gal7, alt: "Bedroom Suite" },
-    { src: Gal8, alt: "Landscape Gardens" }
+    { src: Gal1, alt: "Prestige Golden Grove Hyderabad exterior tower view" },
+    { src: Gal2, alt: "Prestige Golden Grove clubhouse and recreation lounge" },
+    { src: Gal3, alt: "Prestige Golden Grove premium apartment interior design" },
+    { src: Gal4, alt: "Prestige Golden Grove Kollur aerial masterplan perspective" },
+    { src: Gal5, alt: "Prestige Golden Grove project lifestyle amenities zone" },
+    { src: Gal6, alt: "Prestige Golden Grove spacious living room concept" },
+    { src: Gal7, alt: "Prestige Golden Grove luxury bedroom suite concept" },
+    { src: Gal8, alt: "Prestige Golden Grove landscaped garden and open spaces" }
   ];
 
   const openLightbox = (index) => {

@@ -2,18 +2,66 @@ import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import './LeadForm.css';
 
+const CONTACT_API_URL =
+  process.env.REACT_APP_CONTACT_API_URL ||
+  'https://tattvarealty.co.in/backend-files/prestige/contact-prestige.php';
+
 const LeadForm = ({ title, subtitle, source = 'Global' }) => {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(`Lead from ${source}:`, formData);
-    alert('Thank you for your interest! Our representative will contact you shortly.');
-    setFormData({ name: '', phone: '', email: '' });
+    setIsSubmitting(true);
+    setSubmitStatus({ type: '', message: '' });
+
+    try {
+      const payload = new URLSearchParams();
+      payload.append('name', formData.name.trim());
+      payload.append('phone', formData.phone.trim());
+      payload.append('mobile', formData.phone.trim());
+      payload.append('email', formData.email.trim());
+      payload.append('message', 'Interested in brochure, price sheet and site visit.');
+      payload.append('source', source);
+      payload.append('project', 'Prestige Golden Grove');
+
+      const response = await fetch(CONTACT_API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: payload.toString()
+      });
+
+      const rawResult = await response.text();
+      let result = {};
+
+      try {
+        result = rawResult ? JSON.parse(rawResult) : {};
+      } catch (parseError) {
+        result = {};
+      }
+
+      if (!response.ok || result.status !== 'success') {
+        throw new Error(result.message || 'Unable to submit your enquiry right now.');
+      }
+
+      setFormData({ name: '', phone: '', email: '' });
+      window.location.hash = '/thank-you';
+      return;
+    } catch (error) {
+      setSubmitStatus({
+        type: 'error',
+        message: error.message || 'Something went wrong. Please try again.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -53,9 +101,14 @@ const LeadForm = ({ title, subtitle, source = 'Global' }) => {
           />
         </Form.Group>
 
-        <Button type="submit" className="btn-luxury w-100 py-3">
-          Get Instant Details
+        <Button type="submit" className="btn-luxury w-100 py-3" disabled={isSubmitting}>
+          {isSubmitting ? 'Submitting...' : 'Get Instant Details'}
         </Button>
+        {submitStatus.type === 'error' && submitStatus.message && (
+          <p className="small text-center mt-3 text-danger">
+            {submitStatus.message}
+          </p>
+        )}
       </Form>
     </div>
   );

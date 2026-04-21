@@ -11,7 +11,7 @@ const PopupForm = () => {
   const [hasAutoTriggered, setHasAutoTriggered] = useState(false);
 
   const handleWhatsApp = () => {
-    const phoneNumber = "911234567890"; // Placeholder, replace with actual number
+    const phoneNumber = "918897035800"; // Placeholder, replace with actual number
     const message = "Hi, I'm interested in Prestige Golden Grove. Please share more details.";
     window.open(`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`, '_blank');
   };
@@ -67,7 +67,7 @@ const PopupForm = () => {
             </div>
             <button className="close-btn" onClick={closeModal}>&times;</button>
             <div className="popup-image d-none d-md-block">
-              <img src={Prestige} alt="Prestige" />
+              <img src={Prestige} alt="Prestige Golden Grove Hyderabad sample apartment and lifestyle visual" />
               <div className="overlay"></div>
               <div className="text-overlay">
                 <h4 className="serif gold-text">Exclusive Offer</h4>

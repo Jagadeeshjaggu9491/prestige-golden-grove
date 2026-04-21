@@ -1,0 +1,43 @@
+.seo-content-section {
+  background:
+    radial-gradient(circle at 15% 10%, rgba(197, 160, 89, 0.08), transparent 32%),
+    radial-gradient(circle at 85% 90%, rgba(197, 160, 89, 0.07), transparent 35%),
+    #080809;
+}
+
+.seo-intro {
+  max-width: 980px;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.seo-card h3,
+.seo-faq-card h4 {
+  letter-spacing: 0.4px;
+}
+
+.seo-list {
+  padding-left: 1.1rem;
+  margin: 0;
+}
+
+.seo-list li {
+  color: var(--text-muted);
+  margin-bottom: 0.55rem;
+  line-height: 1.6;
+}
+
+.seo-list li:last-child {
+  margin-bottom: 0;
+}
+
+.seo-faq-wrap h3 {
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+  .seo-intro {
+    font-size: 0.98rem;
+    line-height: 1.75;
+  }
+}

@@ -78,7 +78,7 @@ const About = () => {
                 <div className="glass-overlay"></div>
                 <img
                   src={AboutImg}
-                  alt="Luxury Apartment"
+                  alt="Prestige Golden Grove high-rise apartments in Kollur, Hyderabad"
                   className="img-fluid rounded-4 shadow-lg"
                 />
               </div>

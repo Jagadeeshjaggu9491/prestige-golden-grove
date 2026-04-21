@@ -25,7 +25,7 @@ const AppNavbar = () => {
     >
       <Container>
         <Navbar.Brand href="#home" className="brand-logo">
-          <img src={Logo} className='img-fluid' alt='logo' />
+          <img src={Logo} className='img-fluid' alt='Prestige Golden Grove project logo' />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -36,6 +36,7 @@ const AppNavbar = () => {
             <Nav.Link href="#floorplans">Floor Plans</Nav.Link>
             <Nav.Link href="#location">Location</Nav.Link>
             <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Nav.Link href="#project-insights">Project Details</Nav.Link>
             <Nav.Link href="#gallery">Gallery</Nav.Link>
             <Nav.Link 
               as="button" 
